@@ -1,5 +1,6 @@
 h1{
     text-align: center;
+    background-color: #ffffffd0;
 }
 
 .card{
@@ -18,6 +19,10 @@ h1{
     display: inline-block;
     justify-content: center;
     margin-left: 60px;
+}
+
+.Body{
+    background-image: url('./fondo.jpg');
 }
 
 
