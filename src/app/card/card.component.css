@@ -14,13 +14,26 @@
   .btn:hover {
     opacity: 0.8;
   }
-  
+  .card-img {
+    width: 300px;
+  }
+  .titulo_card{
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Cooper
+  }
+  .subtitulo_card{
+    font-family: Bell MT;
+  }
   .edit-button {
     background-color: #19a731; 
+    border: 2px solid;
+    border-radius: 5px
   }
-  
   .delete-button {
     background-color: #910000; 
+    border: 2px solid;
+    border-radius: 5px
   }
   .attribute-container {
     display: table ;

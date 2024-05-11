@@ -1,11 +1,13 @@
+
 <div class="Body">
 <div>
-<h1 class="titulo">Personajes</h1>
+<h1 class="titulo">Productos</h1>
 </div>
-<div class="container"*ngFor="let person of people">
+<div class="container"*ngFor="let product of products">
+  <ng-container *ngIf="product.id">
   <div class="card">
-   <app-card [person] = "person" ></app-card>
+   <app-card [products] = "product" ></app-card>
   </div> 
- </div>
+  </ng-container>
 </div>
   

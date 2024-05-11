@@ -1,29 +1,27 @@
-import { Component, Input, input } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, Input,} from '@angular/core';
 
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
   
 })
 export class CardComponent {
-  @Input()
-  person: any;
-  delete (
-    id : number
-  )
+  @Input ()products: any;
+
+  constructor() { }
+  delete (productid : any)
   {
-    console.log(id);
+    console.log(productid);
   }
 
-  edit (
-    person : any
-  )
+  edit (productid : any)
   {
-    console.log(person);
+    console.log(productid);
   }
   
 

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+const URL = 'https://api.escuelajs.co/api/v1/products';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,13 +10,20 @@ export class CardService {
 
   constructor(private http: HttpClient) { }
 
-  URL = 'https://rickandmortyapi.com/api';
 
-  getCharacters(){
-    return this.http.get(`${this.URL}/character`);
+
+  getProducts(){
+    return this.http.get(URL);
   }
 
-  addCharacter(character: any){
-    return this.http.post(`${this.URL}/addcharacter`, character);
+  addProduct(products: any){
+    return this.http.post(URL, products);
   }
+
+  createProduct(products: any) {
+    return this.http.post(URL, products);
+  }
+
 }
+
+ 

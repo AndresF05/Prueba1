@@ -4,7 +4,7 @@ h1{
 }
 
 .card{
-    background-color: #2f00ffd0;
+    background-color: #0093c0;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
@@ -22,7 +22,7 @@ h1{
 }
 
 .Body{
-    background-image: url('./fondo.jpg');
+    background-image: url('./fondo.png');
 }
 
 
