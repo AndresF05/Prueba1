@@ -1,29 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
-const URL = 'https://api.escuelajs.co/api/v1/products';
+const URL= "https://api.escuelajs.co/api/v1/products"
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
-
+  
   constructor(private http: HttpClient) { }
 
-
-
-  getProducts(){
-    return this.http.get(URL);
+  deleteP(id:number) {
+    return this.http.delete(`https://api.escuelajs.co/api/v1/products/${id}`)
   }
-
-  addProduct(products: any){
-    return this.http.post(URL, products);
+  
+  getAllProducts(): Observable<any> {
+    return this.http.get(URL);
   }
 
   createProduct(products: any) {
     return this.http.post(URL, products);
   }
-
 }
-
- 

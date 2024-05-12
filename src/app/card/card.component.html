@@ -1,18 +1,16 @@
-<div class="container">
-  <div class="card" style="width: 18rem;">
-    <h5 class="titulo_card">{{ products.title }}</h5>
-    <h5 class="precio_card">{{ products.price }}</h5>
-    <div class="card-body">
-      <div class="attribute-container">
-        <h5 class="subtitulo_card">{{ products.description }}</h5>
-        <h5 class="estado_card">{{ products.categoryId }}</h5>
-        <img src="{{products.images}}" class="card-img" alt="">
-      </div>
 
-      <div class="button-container">
-        <button class="btn btn-primary edit-button"(click)="edit(products.id)">Editar</button>
-        <button class="btn btn-danger delete-button"(click)="delete(products.id)">Eliminar</button>
-      </div>
+<div class="card" style="width: 18rem;">
+  
+  <div class="card-body">
+    <div class="attribute-container">  <h5 class="titulo_card">{{ product.title }}</h5>
+      <img [src]="product.images" class="card-img" alt="{{ product.name }}">
+      <h5 class="subtitulo_card">{{ product.price }}</h5>
+      <h5 class="estado_card">{{ product.description }}</h5>
+    </div>
+    
+    <div class="button-container">
+      <button class="btn btn-primary edit-button" (click)="edit(product)">Editar</button>
+      <button class="btn btn-danger delete-button" (click)="deleteProduct(product.id)">Eliminar</button>
     </div>
   </div>
 </div>

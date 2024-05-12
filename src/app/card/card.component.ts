@@ -1,30 +1,42 @@
-import { NgIf } from '@angular/common';
-import { Component, Input,} from '@angular/core';
+import { Component, Input, input } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CardService } from '../card.service';
 
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [NgIf],
+  imports: [ReactiveFormsModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
   
 })
 export class CardComponent {
-  @Input ()products: any;
 
-  constructor() { }
-  delete (productid : any)
-  {
-    console.log(productid);
+  @Input()
+  product: any;
+  title: any
+  name = new FormControl('');
+
+  constructor(private CardService: CardService) { }
+
+
+
+  deleteProduct (id: number) {
+    console.log('Delete button clicked for person:', this.product.id);
+
+    this.CardService.deleteP(this.product.id)
+      .subscribe((response: any) => {
+        console.log('Person deleted successfully:', response);
+        
+      }, (error: any) => {
+        console.error('Error deleting person:', error);
+      });
   }
-
-  edit (productid : any)
+  edit (
+    product: any
+  )
   {
-    console.log(productid);
+    console.log(product);
   }
-  
-
-
-
 }
