@@ -1,6 +1,7 @@
 
 <div class="Body">
 <div>
+  <h1 class="titulo">Productos</h1>
   <div
     class="forms">
     <button class="btt-agregar" (click)="onSummit()">Nuevo Producto</button> <p></p>
@@ -14,14 +15,12 @@
       <input class="border" type="text" name="" id="description" [formControl]= "description" >
       </label>
   </div>
-
-<h1 class="titulo">Productos</h1>
 </div>
 <div class="container"*ngFor="let product of products">
   <ng-container *ngIf="product.id">
-  <div class="card">
-   <app-card [product] = "product" ></app-card>
-  </div> 
+    <div class="card">
+    <app-card [product] = "product" ></app-card>
+    </div> 
   </ng-container>
 </div>
   

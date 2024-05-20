@@ -8,22 +8,19 @@ import { HttpClient } from '@angular/common/http';
 import { NgIf } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, NgForOf, NgIf, ReactiveFormsModule], 
+  imports: [RouterOutlet, CardComponent, NgForOf, NgIf, ReactiveFormsModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent implements OnInit {
   apiUrl = 'http://localhost:3000/products';
-  products: any[] | undefined;
+  products: any[] = [];
   tittle = 'ProyectoApis';
   product: any;
-
-  constructor(private CardService: CardService) { }
 
   price = new FormControl('');
   description = new FormControl('');
@@ -31,9 +28,10 @@ export class AppComponent implements OnInit {
   categoryId = new FormControl('');
   images = new FormControl('');
 
+  constructor(private cardService: CardService) { }
 
   ngOnInit(): void {
-    this.CardService.getAllProducts().subscribe(data => {
+    this.cardService.getAllProducts().subscribe(data => {
       this.products = data;
     });
   }
@@ -46,13 +44,9 @@ export class AppComponent implements OnInit {
       images: ['https://placeimg.com/640/480/any'],
       categoryId: 1
     }
-    this.CardService.createProduct(NewProduct).subscribe((data: any) => {
+    this.cardService.createProduct(NewProduct).subscribe((data: any) => {
       console.log(data);
+      this.product.push(data);
     })
   }
-  createProduct (
-    product: any
-  )
-  {
-    console.log(product);}
 }
