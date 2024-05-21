@@ -9,14 +9,13 @@ import { CardService } from '../card.service';
   imports: [ReactiveFormsModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
-  
+
 })
 export class CardComponent {
 
   @Input()
   product: any;
-  title: any;
-  categoryId: any
+  title: any
 
   price = new FormControl('');
   description = new FormControl('');
@@ -26,30 +25,28 @@ export class CardComponent {
   editForm = new FormGroup({
     title: new FormControl('', Validators.required),
     price: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
-    categoryId: new FormControl('', Validators.required)
+    description: new FormControl('', Validators.required)
   });
 
-  constructor(private CardService: CardService) { }
+  constructor(private cardService: CardService) { }
 
-  deleteProduct (id: number) {
-    console.log('Usted ha eliminando el producto: ', this.product.id);
+  deleteProduct(id: number) {
+    console.log('Usted está eliminando el producto: ', this.product.id);
 
-    this.CardService.deleteP(this.product.id)
+    this.cardService.deleteP(this.product.id)
       .subscribe((response: any) => {
-        console.log('El producto ha sido eliminado correctamente:', response);
-        
+        console.log('Producto eliminado correctamente:', response);
+
       }, (error: any) => {
-        console.error('Error al eliminar el producto:', error);
-      }); 
+        console.error('Error al eliminar producto:', error);
+      });
   }
 
   openEditModal() {
     this.editForm.setValue({
       title: this.product.title,
       price: this.product.price,
-      description: this.product.description,
-      categoryId: this.product.categoryId
+      description: this.product.description
     });
     const modal = document.getElementById('editModal');
     if (modal) {
@@ -70,7 +67,7 @@ export class CardComponent {
       ...this.editForm.value
     };
 
-    this.CardService.updateProduct(this.product.id, updatedProduct).subscribe(response => {
+    this.cardService.updateProduct(this.product.id, updatedProduct).subscribe(response => {
       console.log('Producto actualizado:', response);
       Object.assign(this.product, updatedProduct);
       this.closeEditModal();

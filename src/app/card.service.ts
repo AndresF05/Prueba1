@@ -2,19 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const URL= "https://api.escuelajs.co/api/v1/products"
+const URL = "https://api.escuelajs.co/api/v1/products"
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
-  
+
   constructor(private http: HttpClient) { }
 
-  deleteP(id:number) {
+  deleteP(id: number) {
     return this.http.delete(`${URL}/${id}`)
   }
-  
+
   getAllProducts(): Observable<any> {
     return this.http.get(URL);
   }
@@ -26,5 +26,4 @@ export class CardService {
   updateProduct(id: number, product: any) {
     return this.http.put(`${URL}/${id}`, product);
   }
-
 }
