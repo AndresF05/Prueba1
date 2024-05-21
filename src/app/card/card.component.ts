@@ -15,7 +15,8 @@ export class CardComponent {
 
   @Input()
   product: any;
-  title: any
+  title: any;
+  categoryId: any
 
   price = new FormControl('');
   description = new FormControl('');
@@ -25,7 +26,8 @@ export class CardComponent {
   editForm = new FormGroup({
     title: new FormControl('', Validators.required),
     price: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required)
+    description: new FormControl('', Validators.required),
+    categoryId: new FormControl('', Validators.required)
   });
 
   constructor(private CardService: CardService) { }
@@ -46,7 +48,8 @@ export class CardComponent {
     this.editForm.setValue({
       title: this.product.title,
       price: this.product.price,
-      description: this.product.description
+      description: this.product.description,
+      categoryId: this.product.categoryId
     });
     const modal = document.getElementById('editModal');
     if (modal) {

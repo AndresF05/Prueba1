@@ -1,26 +1,29 @@
 
 <div class="Body">
-<div>
-  <h1 class="titulo">Productos</h1>
-  <div
-    class="forms">
-    <button class="btt-agregar" (click)="onSummit()">Nuevo Producto</button> <p></p>
-    <label for="name">Name: 
-    <input class="border" type="text" name="" id="name" [formControl]= "title" >
-    </label>
-    <label for="name">Precio: 
-      <input class="border" type="text" name="" id="price" [formControl]= "price" >
+  <div>
+    <h1 class="titulo">Productos</h1>
+    <div
+      class="forms">
+      <button class="btt-agregar" (click)="onSummit()">Nuevo Producto</button> <p></p>
+      <label for="name">Name: 
+      <input class="border" type="text" name="" id="name" [formControl]= "title" >
       </label>
-      <label for="name">Descripción: 
-      <input class="border" type="text" name="" id="description" [formControl]= "description" >
-      </label>
+      <label for="name">Precio: 
+        <input class="border" type="text" name="" id="price" [formControl]= "price" >
+        </label>
+        <label for="name">Descripción: 
+        <input class="border" type="text" name="" id="description" [formControl]= "description" >
+        </label>
+          <label for="name">Categoría: 
+          <input class="border" type="text" name="" id="categoryId" [formControl]= "categoryId">
+        </label>
+    </div>
   </div>
-</div>
-<div class="container"*ngFor="let product of products">
-  <ng-container *ngIf="product.id">
-    <div class="card">
-    <app-card [product] = "product" ></app-card>
-    </div> 
-  </ng-container>
-</div>
-  
+  <div class="container"*ngFor="let product of products">
+    <ng-container *ngIf="product.id">
+      <div class="card">
+      <app-card [product] = "product" ></app-card>
+      </div> 
+    </ng-container>
+  </div>
+    

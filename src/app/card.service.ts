@@ -26,4 +26,5 @@ export class CardService {
   updateProduct(id: number, product: any) {
     return this.http.put(`${URL}/${id}`, product);
   }
+
 }
