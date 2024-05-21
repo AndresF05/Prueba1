@@ -17,10 +17,10 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 
 export class AppComponent implements OnInit {
-  apiUrl = 'http://localhost:3000/products';
+  apiUrl = 'http://localhost:4200/api/products';
   products: any[] = [];
-  tittle = 'ProyectoApis';
-  product: any;
+  tittle = 'ApiPrueba';
+  product: any = [];
 
   price = new FormControl('');
   description = new FormControl('');

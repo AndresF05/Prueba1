@@ -41,3 +41,9 @@
     margin-bottom: 40px; 
     background-color: #ffffff; 
   }
+  .btn-secondary{
+    background-color: #660000;
+  }
+  .btn-primary{
+    background-color: #004d0d;
+  }
